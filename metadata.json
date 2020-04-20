@@ -1,0 +1,51 @@
+{
+    "title": "Bird sound classifier",
+    "summary": "Classify audio files among bird species from the Xenocanto dataset.",
+    "description": [
+        "This is a plug-and-play tool to perform bird sound classification with Deep Learning.",
+
+        "The PREDICT method expects an audio file as input (or the url of a audio file) and will return a JSON with ",
+        "the top 5 predictions. Most audio file formats are supported (see [FFMPEG](https://www.ffmpeg.org/) compatible formats).\n",
+
+        "We use the [Xenocanto dataset](https://www.gbif.org/dataset/b1047888-ae52-4179-9dd5-5448ea342a24) [1].",
+        "with has around 350K samples covering 10K species. As an initial assessment we have trained the model on the",
+        "#### most popular species, which cover around  ###### of all the dataset samples.",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-birds-audio-classification-tf/master/images/workflow-birds.png'/>\n",
+
+        "This service is based in the [Audio Classification with Tensorflow](./deep-oc-audio-classification-tf.html) model.\n",
+
+        "**References**\n",
+        "[1]: Vellinga W (2019). Xeno-canto - Bird sounds from around the world. Xeno-canto Foundation for Nature Sounds. Occurrence dataset https://doi.org/10.15468/qv0ksn accessed via GBIF.org on 2019-10-25.\n"
+	],
+    "keywords": [
+        "tensorflow", "docker", "deep learning", "trainable", "inference", "pre-trained", "audio classification",  "api-v2"
+    ],
+    "license": "Apache 2.0",
+    "training_files_url": "https://cephrgw01.ifca.es:8080/swift/v1/birds-audio-tf/xenocanto.tar.gz",
+    "dataset_url": "",
+    "cite_url": "",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-birds-audio-classification-tf",
+		"docker_registry_repo": "deephdc/deep-oc-birds-audio-classification-tf",
+		"code": "https://github.com/deephdc/audio-classification-tf"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-birds-audio-classification-tf/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-birds-audio-classification-tf/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Marathon default",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-marathon-webdav.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}
