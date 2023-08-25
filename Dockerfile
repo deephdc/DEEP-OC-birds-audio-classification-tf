@@ -13,7 +13,7 @@ ENV CONTAINER_VERSION "0.1"
 ENV CONTAINER_DESCRIPTION "DEEP as a Service Container: Birds Audio Classification"
 
 # Download network weights
-ENV SWIFT_CONTAINER https://cephrgw01.ifca.es:8080/swift/v1/audio-classification-tf/
+ENV SWIFT_CONTAINER https://api.cloud.ifca.es:8080/swift/v1/audio-classification-tf/
 ENV MODEL_TAR xenocanto_73_species.tar.gz
 
 RUN rm -rf audio-classification-tf/models/audioset
